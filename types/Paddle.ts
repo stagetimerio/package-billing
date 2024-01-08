@@ -22,8 +22,8 @@ export interface TimePeriod {
 }
 
 export type CustomData = {
-  uid: string
-  teamId: string
+  uid?: string
+  teamId?: string
 }
 
 export interface BillingDetails {

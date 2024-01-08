@@ -1,7 +1,7 @@
 import { SubscriptionId, TransactionId, CustomerId, AddressId, BusinessId, InvoiceId, DiscountId, PriceId, TransactionItemId, BillingDetails, TimePeriod, TimeInterval, CustomData } from './Paddle'
 import { PaddlePrice } from './PaddlePrice'
 
-export interface PaddleSubscription {
+export interface PaddleSubscription extends CustomData {
   id: SubscriptionId
   status: 'active' | 'canceled' | 'past_due' | 'paused' | 'trialing'
   customer_id: CustomerId

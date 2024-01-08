@@ -2,7 +2,7 @@ import { TransactionId, SubscriptionId, CustomerId, AddressId, BusinessId, Invoi
 import { PaddlePrice } from './PaddlePrice'
 import { PaddleProduct } from './PaddleProduct'
 
-export interface PaddleTransaction {
+export interface PaddleTransaction extends CustomData {
   id: TransactionId
   status: 'draft' | 'ready' | 'billed' | 'completed' | 'canceled' | 'past_due'
   customer_id: CustomerId | null
