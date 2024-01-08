@@ -1,0 +1,7 @@
+# Ignore built files
+/dist/**/*
+
+# Ignore vanilla JS files
+**/*.js
+**/*.cjs
+**/*.mjs
