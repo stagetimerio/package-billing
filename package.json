@@ -14,9 +14,6 @@
   "files": [
     "dist"
   ],
-  "engines": {
-    "node": "18"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/stagetimerio/package-billing.git"
