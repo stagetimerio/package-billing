@@ -1,4 +1,4 @@
-import { SubscriptionId, TransactionId, CustomerId, AddressId, BusinessId, InvoiceId, DiscountId, PriceId, TransactionItemId, BillingDetails, TimePeriod, TimeInterval, CustomData } from './Paddle'
+import { SubscriptionId, CustomerId, AddressId, BusinessId, DiscountId, TimePeriod, TimeInterval, CustomData } from './Paddle'
 import { PaddlePrice } from './PaddlePrice'
 
 export interface PaddleSubscription extends CustomData {

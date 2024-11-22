@@ -69,8 +69,7 @@ export interface Totals extends TotalsBase {
   balance: string
 }
 
-export interface AdjustedTotals extends TotalsBase {
-}
+export type AdjustedTotals = TotalsBase
 
 export interface PayoutTotals extends TotalsBase {
   discount: string
