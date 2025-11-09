@@ -1,7 +1,7 @@
 {
   "name": "@stagetimerio/billing",
   "description": "Shared library for billing",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "author": "Lukas Hermann <hey@lukashermann.dev>",
   "type": "module",
   "exports": {
