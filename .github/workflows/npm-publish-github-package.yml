@@ -2,8 +2,11 @@ name: Publish Package
 
 on:
   push:
-    tags:
-      - '*'
+    tags: ['*']
+  workflow_dispatch:
+
+env:
+  NODE_VERSION: 22
 
 jobs:
   publish:
@@ -12,13 +15,24 @@ jobs:
       contents: read
       packages: write
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js ${{ env.NODE_VERSION }}
+        uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: ${{ env.NODE_VERSION }}
           registry-url: https://npm.pkg.github.com/
-      - run: npm ci
-      - run: npm run build
-      - run: npm publish
+          scope: '@stagetimerio'
+
+      - name: Install Dependencies
+        run: npm ci --loglevel=error
         env:
-          NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build Package
+        run: npm run build
+
+      - name: Publish Package
+        run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
