@@ -2,7 +2,8 @@
   "compilerOptions": {
     "strict": true,
     "skipLibCheck": true,
-    "noEmit": true
+    "noEmit": true,
+    "lib": ["ES2020"]
   },
   "include": [
     "types/**/*.ts",
