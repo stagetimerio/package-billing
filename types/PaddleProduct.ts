@@ -22,10 +22,12 @@ export interface ProductCustomData {
   messages?: string
   rooms?: string
   timers?: string
+  amount?: string // Device pack step size (e.g., '5' for 5 devices per pack)
 }
 
 export enum ProductType {
   BASE = 'BASE',
   SEAT = 'SEAT',
   LICENSE = 'LICENSE',
+  DEVICES = 'DEVICES',
 }
