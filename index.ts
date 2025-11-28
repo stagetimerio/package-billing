@@ -8,6 +8,7 @@ export * from './types/Permission'
 export * from './types/Plan'
 export * from './types/BillingInterval'
 export * from './types/PlanLabel'
+export * from './types/TxnTag'
 
 // Utils
 export * from './utils/getLimits'
