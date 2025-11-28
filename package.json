@@ -6,21 +6,30 @@
   "type": "module",
   "exports": {
     "./types": {
-      "require": "./dist/cjs/types/index.js",
-      "import": "./dist/esm/types/index.js"
+      "import": {
+        "types": "./dist/types/index.d.mts",
+        "default": "./dist/types/index.mjs"
+      },
+      "require": {
+        "types": "./dist/types/index.d.cts",
+        "default": "./dist/types/index.cjs"
+      }
     },
     "./utils": {
-      "require": "./dist/cjs/utils/index.js",
-      "import": "./dist/esm/utils/index.js"
+      "import": {
+        "types": "./dist/utils/index.d.mts",
+        "default": "./dist/utils/index.mjs"
+      },
+      "require": {
+        "types": "./dist/utils/index.d.cts",
+        "default": "./dist/utils/index.cjs"
+      }
     }
   },
   "scripts": {
-    "build": "rm -rf ./dist && npm run build:cjs && npm run build:esm",
-    "build:cjs": "tsc --module commonjs --outDir dist/cjs/ && echo '{\"type\": \"commonjs\"}' > dist/cjs/package.json",
-    "build:esm": "tsc --module esnext --outDir dist/esm/ && echo '{\"type\": \"module\"}' > dist/esm/package.json"
+    "build": "tsdown",
+    "typecheck": "tsc"
   },
-  "main": "dist/cjs/index.js",
-  "types": "dist/esm/index.d.ts",
   "files": [
     "dist",
     "README.md"
@@ -34,6 +43,7 @@
     "@stylistic/eslint-plugin": "^5.6.1",
     "eslint": "^9.15.0",
     "globals": "^16.5.0",
+    "tsdown": "^0.16.8",
     "typescript": "^5.3.3",
     "typescript-eslint": "^8.15.0"
   }

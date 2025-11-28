@@ -5,9 +5,8 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## Build Commands
 
 ```sh
-npm run build          # Build both CJS and ESM outputs
-npm run build:cjs      # Build CommonJS only
-npm run build:esm      # Build ESM only
+npm run build          # Build both CJS and ESM outputs via tsdown
+npm run typecheck      # Run TypeScript type checking
 ```
 
 There are no test or lint scripts configured.
