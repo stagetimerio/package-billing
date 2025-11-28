@@ -1,4 +1,6 @@
-import { TransactionItem, SubscriptionItem, ProductId, PaddleProduct, ProductType } from '../types'
+import { ProductId, PaddleProduct, ProductType } from '../types/PaddleProduct'
+import { SubscriptionItem } from '../types/PaddleSubscription'
+import { TransactionItem } from '../types/PaddleTransaction'
 
 export interface PlanLimits {
   seats: number
