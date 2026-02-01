@@ -50,8 +50,11 @@ export function getLimits (
         limits.seats += item.quantity
         break
       case ProductType.LICENSE:
-        // LICENSE is a desktop app lifetime license - only affects license count, not web app limits
+        limits.rooms = parseInt(product.rooms || '3')
         limits.licenses += item.quantity
+        limits.devices = parseInt(product.devices || '3')
+        limits.timers = parseInt(product.timers || '3')
+        limits.messages = parseInt(product.messages || '3')
         break
       case ProductType.DEVICES:
         limits.devices += item.quantity * parseInt(product.amount || '5')
