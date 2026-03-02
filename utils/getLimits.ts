@@ -35,26 +35,31 @@ export function getLimits (
     messages: 3, // Default value for messages
   }
 
+  // Pass 1: BASE and LICENSE items set the baseline limits
+  for (const item of items) {
+    const product = productMap[item.price.product_id]
+    if (product.typ === ProductType.BASE) {
+      limits.rooms = parseInt(product.rooms || '3')
+      limits.seats += parseInt(product.seats || '1')
+      limits.licenses += parseInt(product.licenses || '1')
+      limits.devices = parseInt(product.devices || '3')
+      limits.timers = parseInt(product.timers || '3')
+      limits.messages = parseInt(product.messages || '3')
+    } else if (product.typ === ProductType.LICENSE) {
+      limits.rooms = parseInt(product.rooms || '3')
+      limits.licenses += item.quantity
+      limits.devices = parseInt(product.devices || '3')
+      limits.timers = parseInt(product.timers || '3')
+      limits.messages = parseInt(product.messages || '3')
+    }
+  }
+
+  // Pass 2: add-ons accumulate on top of the baseline
   for (const item of items) {
     const product = productMap[item.price.product_id]
     switch (product.typ) {
-      case ProductType.BASE:
-        limits.rooms = parseInt(product.rooms || '3')
-        limits.seats += parseInt(product.seats || '1')
-        limits.licenses += parseInt(product.licenses || '1')
-        limits.devices = parseInt(product.devices || '3')
-        limits.timers = parseInt(product.timers || '3')
-        limits.messages = parseInt(product.messages || '3')
-        break
       case ProductType.SEAT:
         limits.seats += item.quantity
-        break
-      case ProductType.LICENSE:
-        limits.rooms = parseInt(product.rooms || '3')
-        limits.licenses += item.quantity
-        limits.devices = parseInt(product.devices || '3')
-        limits.timers = parseInt(product.timers || '3')
-        limits.messages = parseInt(product.messages || '3')
         break
       case ProductType.DEVICES:
         limits.devices += item.quantity * parseInt(product.amount || '5')
