@@ -13,7 +13,7 @@ export interface PaddlePrice {
     maximum: number
   }
   status: 'active' | 'archived'
-  custom_data: null
+  custom_data: Record<string, string> | null
   billing_cycle: TimeInterval | null
   trial_period: TimeInterval | null
 }

@@ -62,7 +62,7 @@ export function getLimits (
         limits.seats += item.quantity
         break
       case ProductType.DEVICES:
-        limits.devices += item.quantity * parseInt(product.amount || '5')
+        limits.devices += item.quantity * parseInt(item.price.custom_data?.amount || product.amount || '5')
         break
     }
   }
